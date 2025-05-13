@@ -53,7 +53,6 @@
       margin: auto;
       backdrop-filter: blur(10px);
       box-shadow: 0 0 20px #000;
-      transform: rotateX(10deg);
     }
 
     input, button {
@@ -122,7 +121,6 @@
       to { box-shadow: 0 0 30px #ff4de6, 0 0 40px #ff4de6; }
     }
 
-    /* Puzzle */
     #puzzle {
       display: grid;
       grid-template-columns: repeat(3, 100px);
@@ -148,7 +146,6 @@
 
     .tile.empty { background-color: transparent; cursor: default; }
 
-    /* Picas y Fijas */
     .picas-section input {
       max-width: 300px;
     }
@@ -156,6 +153,47 @@
     .respuesta-juego {
       margin-top: 1rem;
       font-weight: bold;
+    }
+
+    .bio {
+      background: rgba(255,255,255,0.05);
+      margin-top: 2rem;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .bio img {
+      border-radius: 50%;
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .qr-container {
+      margin-top: 2rem;
+    }
+
+    .qr-container img {
+      width: 150px;
+      border-radius: 10px;
+      margin: 1rem;
+    }
+
+    .qr-buttons a {
+      display: inline-block;
+      background: #25D366;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0.5rem;
+    }
+
+    .qr-buttons a:hover {
+      background: #1ebc59;
     }
   </style>
 </head>
@@ -171,7 +209,6 @@
   </nav>
 </header>
 
-<!-- LOGIN -->
 <section class="active" id="login">
   <div class="box">
     <h2>Iniciar Sesión</h2>
@@ -182,7 +219,6 @@
   </div>
 </section>
 
-<!-- REGISTRO -->
 <section id="registro">
   <div class="box">
     <h2>Crear Cuenta</h2>
@@ -193,22 +229,29 @@
   </div>
 </section>
 
-<!-- CONTENIDO -->
 <section id="contenido">
   <h2>🎬 Zona Anime & Gaming 🎮</h2>
   <iframe src="https://www.youtube.com/embed/MGRm4IzK1SQ"></iframe>
   <iframe src="https://www.youtube.com/embed/E3Huy2cdih0"></iframe>
+
   <div class="innovacion">
     <h3>✨ NeoBot+ te recomienda anime basado en tu humor</h3>
   </div>
-  <br>
-  <button onclick="logout()">Cerrar sesión</button>
+
+  <div class="qr-container">
+    <h3>Conéctate con nosotros</h3>
+    <div class="qr-buttons">
+      <a href="https://wa.me/573046065632?text=¡Bienvenido%20a%20NeoVerse!" target="_blank">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/diegopalma12/" target="_blank">LinkedIn</a>
+    </div>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/diegopalma12/" alt="Código QR de LinkedIn">
+  </div>
+
+  <br><button onclick="logout()">Cerrar sesión</button>
 </section>
 
-<!-- JUEGOS -->
 <section id="juegos">
   <h2>🎮 Zona de Mini Juegos</h2>
-
   <h3>🧩 Puzzle 3x3</h3>
   <div id="puzzle"></div>
   <button onclick="mezclar()">Mezclar Puzzle</button>
@@ -222,7 +265,6 @@
   </div>
 </section>
 
-<!-- Asistente -->
 <div class="assistant">
   <h4>Asistente NeoBot 🤖</h4>
   <div id="respuesta">Hola, ¿en qué puedo ayudarte?</div>
@@ -302,7 +344,6 @@
     speechSynthesis.speak(voz);
   }
 
-  // === PUZZLE ===
   const puzzle = document.getElementById("puzzle");
   let tiles = [];
 
@@ -357,7 +398,6 @@
 
   crearPuzzle();
 
-  // === PICAS Y FIJAS ===
   function generarNumero() {
     let nums = [];
     while (nums.length < 4) {
