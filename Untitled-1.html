@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoVerse</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #ff4de6;
+      text-shadow: 0 0 10px #ff4de6;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4de6;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      text-align: center;
+      display: none;
+    }
+
+    .active { display: block; }
+
+    .box {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 400px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px #000;
+      transform: rotateX(10deg);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    button {
+      background: #ff4de6;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      background: #e644c3;
+      transform: scale(1.05);
+    }
+
+    iframe {
+      width: 90%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 15px;
+      margin-top: 1rem;
+    }
+
+    .mensaje { font-weight: bold; margin-top: 1rem; }
+
+    .assistant {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.85);
+      border: 2px solid #ff4de6;
+      border-radius: 20px;
+      padding: 1rem;
+      width: 250px;
+      z-index: 1000;
+      font-size: 0.9rem;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    .assistant h4 { margin: 0 0 0.5rem 0; color: #ff4de6; }
+
+    .innovacion {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #ff4de6; }
+      to { box-shadow: 0 0 30px #ff4de6, 0 0 40px #ff4de6; }
+    }
+
+    #puzzle {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tile {
+      width: 100px;
+      height: 100px;
+      background-color: #ecf0f1;
+      color: #2c3e50;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .tile.empty { background-color: transparent; cursor: default; }
+
+    .picas-section input {
+      max-width: 300px;
+    }
+
+    .respuesta-juego {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NeoVerse</h1>
+    <nav>
+      <a href="#" onclick="mostrarSeccion('perfil')">Sobre mí</a>
+    </nav>
+  </header>
+  <!-- SECCIÓN PERFIL DIEGO PALMA -->
+  <section id="perfil">
+    <h2>👤 Sobre Diego Palma</h2>
+   <img 
+  src="https://3.gall-img.com/tdgall/files/attach/images/82/981/805/070/13a4512ade648cb4a741a62f3a8cd935.jpg" alt="Foto Diego Palma" style="width: 340px; border-radius: 40%; box-shadow: 0 0 10px #ff4de6;">
+
+    <div class="box" style="margin-top: 1rem;">
+      <p>Soy Diego Palma, apasionado por el desarrollo web, los videojuegos y el mundo del anime. Me encanta crear experiencias digitales atractivas y funcionales como NeoVerse.</p>
+      <h3>💼 Estudios y Experiencia</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>📘 Estudiante de Ingeniería de Sistemas</li>
+        <li>🖥️ Experiencia en desarrollo HTML, CSS y JavaScript</li>
+        <li>🔧 Proyectos personales y colaborativos en diseño web</li>
+      </ul>
+      <h3>🛠️ Habilidades</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>✅ Desarrollo web Frontend</li>
+        <li>✅ Diseño UX/UI</li>
+        <li>✅ Lógica de programación</li>
+        <li>✅ Manejo de herramientas como VS Code, Git</li>
+      </ul>
+
+  <footer>
+    <p>&copy; 2025 NeoVerse. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll("section").forEach(seccion => {
+        seccion.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</body>
+</html>
